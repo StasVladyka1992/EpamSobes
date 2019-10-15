@@ -1,7 +1,5 @@
 package Thread;
 
-import sun.applet.Main;
-
 public class UsingVariableFromDifferentThread{
   public static int counter;
      // сразу может быть не видно, но значение переменной counter может различаться, причем очень сильно, при одном и том

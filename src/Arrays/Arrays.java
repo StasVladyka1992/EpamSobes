@@ -1,9 +1,5 @@
 package Arrays;
 
-import com.sun.corba.se.spi.ior.ObjectKey;
-
-import javax.naming.event.ObjectChangeListener;
-
 public class Arrays {
     public static void main(String[] args) {
         // массивы - это объекты если объявляется ссылка на массив и она ничем не инициализируется,
