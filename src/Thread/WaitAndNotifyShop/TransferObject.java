@@ -4,7 +4,6 @@ public class TransferObject {
     private int value;
     protected volatile boolean isValuePresent = false; //use this variable
 
-
     // Логика методов get и put была изначально другой: выполнение проги запускалось исходя из переменной isValuePresent
     // т.е. шел цикл while (isValuePresent) {...}, после изменения его вида на while (isValuePresent), прошло валидацию
     public synchronized int get() {

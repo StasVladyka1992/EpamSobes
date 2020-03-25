@@ -1,4 +1,4 @@
-package Thread;
+package Thread.thread_creation;
 
 // существует 2 способа создания нитей.
 //  - Первый: имплементировать классом интерфейс Runnable в классе, а затем передать объект этого класса в качестве параметра
@@ -14,12 +14,16 @@ public class WithRunableInterface implements Runnable {
         System.out.println("Я новая нить "+ Thread.currentThread().getName());
         for (int i = 10; i >= 0 ; i--) {
             System.out.println("Обратный отсчет: "+ i);
-
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    public static void main(String[] args) {
+        Thread thread = new Thread(new WithRunableInterface());
+        thread.start();
     }
 }
