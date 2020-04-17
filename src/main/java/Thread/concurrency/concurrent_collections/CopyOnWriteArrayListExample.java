@@ -17,10 +17,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 	 	The Iterator is not designed to be used by more than one thread though.
 
 	3) CopyOnWriteArraySet -
-	4) ConcurrentNavigableMap
-		а) ConcurrentSkipListMap аналог TreeMap
-	5) ConcurrentSkipListMap
-	6) ConcurrentSkipListSet
+	4) ConcurrentSkipListMap TreeMap
+	5) ConcurrentSkipListSet
 */
 public class CopyOnWriteArrayListExample {
 	public static void main(String[] args) {

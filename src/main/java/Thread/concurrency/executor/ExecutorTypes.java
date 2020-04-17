@@ -4,6 +4,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -29,7 +30,7 @@ public class ExecutorTypes {
 
 		//this method returns a fixed size thread pool that can schedule commands to run after a given delay,
 		//or to execute periodically.
-		ExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(4);
+		ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(4);
 
 //      TODO customization.
 //      Here we are going to create own ThreadPoolExecutor
