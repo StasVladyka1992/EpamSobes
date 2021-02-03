@@ -34,6 +34,5 @@ public class WithCallableInterface implements Callable<String> {
 		FutureTask<String> stringFuture = new FutureTask<>(callable);
 		Thread thread = new Thread(stringFuture);
 		thread.start();
-		System.out.println(stringFuture.get());
 	}
 }

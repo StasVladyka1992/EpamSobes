@@ -4,21 +4,9 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 /*
 Пакет java.util.concurrent включает несколько потокобезопасных коллекций :
-	CopyOnWriteArrayList - volatile ArrayList. При чтении список не блокируется, а вот при вставке, создается копия имеющегося
-	списка с новым элементом. Синхронизации при вставке не происходит. Соответственно тут никогда не получишь ConcurrentModificationException
+	CopyOnWriteArrayList - volatile ArrayList. При чтении список не блокируется, а вот при вставке или удалении, создается копия имеющегося
+	списка с новым элементом. Синхронизации при вставке не происходит. Тут никогда не получишь ConcurrentModificationException
 	UnsupportedOperationException при remove через итератор. Используется, когда операции вставки очень редки.
-
-	1) ConcurrentHashMap -
-		а) ConcurrentHashMap does not lock the Map while you are reading from it.
-	 	Additionally, ConcurrentHashMap does not lock the entire Map when writing to it. It only locks the part of the
-	 	Map that is being written to, internally.
-
-	 	б) ConcurrentModificationException if the ConcurrentHashMap is changed while being iterated.
-	 	The Iterator is not designed to be used by more than one thread though.
-
-	3) CopyOnWriteArraySet -
-	4) ConcurrentSkipListMap TreeMap
-	5) ConcurrentSkipListSet
 */
 public class CopyOnWriteArrayListExample {
 	public static void main(String[] args) {
@@ -26,6 +14,7 @@ public class CopyOnWriteArrayListExample {
 		list.add("1");
 		list.add("2");
 		list.add("3");
+
 	}
 
 

@@ -37,5 +37,26 @@ public class Human {
         //и т.д.
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Human human = (Human) o;
+
+        if (age != human.age) return false;
+        if (childrenNumber != human.childrenNumber) return false;
+        if (name != null ? !name.equals(human.name) : human.name != null) return false;
+        return address.equals(human.address);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + address.hashCode();
+        result = 31 * result + age;
+        result = 31 * result + childrenNumber;
+        return result;
+    }
 }
 

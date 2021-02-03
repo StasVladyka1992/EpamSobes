@@ -6,6 +6,7 @@ Concurrent коллекции используют в многопоточных
 
 Подробнее:
 http://blog.yuriytkach.com/2013/09/concurrent-collections-java.html
+алгоритмические сложности - https://www.baeldung.com/java-collections-complexity
 */
 public class ConcurrentCollectionTheory {
 }

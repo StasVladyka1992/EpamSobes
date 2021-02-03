@@ -8,6 +8,8 @@ package Thread.thread_creation;
 //  - Использовать анонимный класс
 
 
+import java.util.concurrent.ThreadPoolExecutor;
+
 public class WithRunableInterface implements Runnable {
     @Override
     public void run() {
@@ -23,6 +25,7 @@ public class WithRunableInterface implements Runnable {
     }
 
     public static void main(String[] args) {
+
         Thread thread = new Thread(new WithRunableInterface());
         thread.start();
     }

@@ -6,6 +6,24 @@ package Algorythm.sorting;
 это 3, ставим его на 0 позицию. Далее, самый маленький после 3 это 5, ставим его на позицию 1 и так далее.
  */
 public class SelectSort {
+	public static void main(String[] args) {
+		int[] array = {1, 3, 10, 2, 19, 0, 20, 17};
+
+		for (int i = 0; i < array.length - 1; i++) {
+			int smallestElementIndex = i;
+			for (int j = i + 1; j < array.length; j++) {
+				if (array[j] < array[smallestElementIndex]) {
+					smallestElementIndex = j;
+				}
+			}
+			int buf = array[i];
+			array[i] = array[smallestElementIndex];
+			array[smallestElementIndex] = buf;
+		}
+		for (int i = 0; i < array.length; i++) {
+			System.out.print(array[i] + " ");
+		}
+	}
 
 	private int findSmallestIndex(int[] array, int startIndex) {
 		int smallest = array[startIndex];

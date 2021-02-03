@@ -6,7 +6,14 @@ import Patterns.Factory.FactoryMethod.store.NYPizzaStore;
 import Patterns.Factory.FactoryMethod.store.PizzaStore;
 
 public class Main {
+//    https://refactoring.guru/ru/design-patterns/factory-comparison
 
+
+    /**
+     * Очень простой в реализации паттерн. Создаются два интерфейса/абстрактных класса,
+     * Product и Creator. Creator создает различные Product
+     *
+     */
     public static void main(String[] args) {
 
 
@@ -19,7 +26,8 @@ public class Main {
     }
 
 
-
-
-
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+    }
 }

@@ -15,6 +15,11 @@ public class ThreadGroupExample {
 
 		Thread thread1 = new Thread(group, () -> {
 			System.out.println(Thread.currentThread().getName());
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		});
 
 		Thread thread2 = new Thread(group, () -> {
@@ -23,5 +28,13 @@ public class ThreadGroupExample {
 		Thread thread3 = new Thread(group, () -> {
 			System.out.println(Thread.currentThread().getName());
 		});
+
+		thread1.start();
+		thread2.start();
+		thread3.start();
+
+		group.destroy();
+		System.out.println(group.isDestroyed());
+
 	}
 }

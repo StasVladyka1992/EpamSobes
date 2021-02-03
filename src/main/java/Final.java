@@ -42,4 +42,8 @@ public class Final {
     public static void printSeveralTimes(final int times){
         // times=10; - ошибка компиляции
     }
+
+    public final void myMethod(){
+
+    }
 }

@@ -1,3 +1,4 @@
+
 package Algorythm.sorting;
 
 import java.util.Arrays;
@@ -10,18 +11,12 @@ import java.util.Arrays;
 2) Создаем два новых массива, в один и которых складываются элементы МЕНЬШЕ опорного, а в другой - БОЛЬШЕ
 3) Сортируем левый и правый массив с помощью рекурсии, т.е. повторяем шаги с 1 по 3.
 4) Новый массив = отсортированная левая часть + опорный + отсортированная правая часть
+Aлгоритмическая сложность: средний случа он же лучший -  O(n) *O(log n) = O(n*log n)
+						   худший случай - O(n^2)
+См. грокаем алгоритмы
 
-Aлгоритмическая сложность: средний случай O(n*log n) - O(n) складывание элементов больше или меньше опорного в разные массивы
  */
 public class QuickSort {
-	public static void main(String[] args) {
-		QuickSort object = new QuickSort();
-		int[] ar = {1, 18, 6, 32, 6, 9, -5, 3};
-		for (int item : object.quickSort(ar)) {
-			System.out.println(item);
-		}
-	}
-
 	public int[] quickSort(int[] array) {
 		if (array.length == 0 || array.length == 1) {
 			return array;
@@ -55,4 +50,14 @@ public class QuickSort {
 		System.arraycopy(biggerPart, 0, result, smallerPart.length + bearingElem.length, biggerPart.length);
 		return result;
 	}
+
+	public static void main(String[] args) {
+		QuickSort object = new QuickSort();
+		int[] ar = {1, 18, 6, 32, 6, 9, -5, 3};
+		for (int item : object.quickSort(ar)) {
+			System.out.println(item);
+		}
+	}
 }
+
+

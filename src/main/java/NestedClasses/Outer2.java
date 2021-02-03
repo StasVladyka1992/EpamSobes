@@ -1,6 +1,6 @@
 package NestedClasses;
 
-//рассмотрение вложенных классов (на примере внутреннего класса)
+//рассмотрение внутреннего класса на примере вложенного класса)
 public class Outer2 {
     private int outterPrivateObjectField;
     private static int outterPrivateStaticField;

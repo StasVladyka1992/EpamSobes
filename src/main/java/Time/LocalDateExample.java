@@ -1,6 +1,9 @@
 package Time;
 
+import static java.time.temporal.ChronoUnit.DAYS;
+
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.ZoneId;
 
@@ -18,6 +21,11 @@ public class LocalDateExample {
 		//Current Date
 		LocalDate today = LocalDate.now();
 		System.out.println("Current Date="+today);
+
+		LocalDate now = LocalDate.now();
+		LocalDate then = LocalDate.of(2015, Month.APRIL, 1);
+
+		long days = DAYS.between(then, now);
 
 		//Creating LocalDate by providing input arguments
 		LocalDate firstDay_2014 = LocalDate.of(2014, Month.JANUARY, 1);

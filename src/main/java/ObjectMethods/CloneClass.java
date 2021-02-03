@@ -39,4 +39,14 @@ public class CloneClass implements Cloneable{
             System.out.println(ar.get(i));
         }
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+    }
 }

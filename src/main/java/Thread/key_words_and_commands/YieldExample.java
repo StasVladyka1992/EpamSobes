@@ -6,5 +6,7 @@ public class YieldExample {
 	public static void main(String[] args) {
 		Thread thread = new Thread(Thread::yield);
 		thread.start();
+		Object object = new Object();
+		String string = new String();
 	}
 }

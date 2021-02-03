@@ -15,6 +15,11 @@ import Patterns.Factory.AbstractFactory.ingredient.veggie.EggPlant;
 import Patterns.Factory.AbstractFactory.ingredient.veggie.Spinach;
 import Patterns.Factory.AbstractFactory.ingredient.veggie.Veggie;
 
+/**
+ * Основной показатель, что это абстрактная фабрика, так это то, что возвращается не один типо объекта, а несколько
+ * различных. createDough, createSauce, createCheese - это  factory methodы, только тут реализация определяется исходя из
+ * тип PizzaIngredientFactory
+ */
 public class ChicagoPizzaIngredientFactory implements PizzaIngredientFactory {
     @Override
     public Dough createDough() {

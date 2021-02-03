@@ -10,6 +10,8 @@ import java.util.*;
  */
 public class CollectionExample {
     public static void main(String[] args) {
+
+        new TreeSet<>();
         CollectionExample example = new CollectionExample();
         example.addReturnsForList();
         example.addReturnsForSet();

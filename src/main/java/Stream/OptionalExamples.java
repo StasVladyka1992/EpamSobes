@@ -1,6 +1,7 @@
 package Stream;
 
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * @project EpamSobes
@@ -44,7 +45,7 @@ public class OptionalExamples {
         Person person1 = null;
         //when we don't know whether it can be null or not
         Optional<Person> opt = Optional.ofNullable(person);
-        Optional<Person> opt1 = Optional.ofNullable(person);
+        Optional<Person> opt1 = Optional.ofNullable(person1);
     }
 
 
@@ -60,5 +61,18 @@ public class OptionalExamples {
         //orElse() used when value is null, it is opposite to ifPresent()
         Person person = null;
         System.out.println(Optional.ofNullable(person).orElse(new Person("asa", 10)));
+    }
+
+    //since java 9
+    private void ifPresentOrElseExample(){
+        Optional<String> o = Optional.of(null);
+        o.ifPresentOrElse(s -> System.out.println("Stas"), () -> {
+            System.out.println("Hi");
+        });
+    }
+
+    //since java 9
+    private void streamExample(){
+        Optional.of("St").stream().collect(Collectors.toList());
     }
 }

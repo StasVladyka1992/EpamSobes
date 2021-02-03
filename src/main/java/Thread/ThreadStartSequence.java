@@ -10,7 +10,5 @@ public class ThreadStartSequence  {
             t.setName("Thread "+i);
             t.start();
         }
-
     }
-
 }
