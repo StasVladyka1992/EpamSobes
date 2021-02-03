@@ -7,4 +7,6 @@ public class Theory {
 	//deadlock -
 	//race condition - commit from master branch
 	//live lock
+	//race condition -
+	//live lock - test commit on test
 }
