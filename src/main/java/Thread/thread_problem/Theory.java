@@ -6,5 +6,5 @@ public class Theory {
 	//перемещение строк и функций компилятором - happens before
 	//deadlock -
 	//race condition -
-	//live lock
+	//live lock - test commit on test branch
 }
