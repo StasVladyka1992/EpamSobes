@@ -5,6 +5,6 @@ public class Theory {
 	//visibility - решается с volatile
 	//перемещение строк и функций компилятором - happens before
 	//deadlock -
-	//race condition -
+	//race condition - commit from master branch
 	//live lock
 }
