@@ -22,7 +22,6 @@ public class Test implements Cloneable {
 
 		System.out.println(a1==a2);
 		System.out.println(a3==2L);
-
-
+		System.out.println(a3==1L);
 	}
 }
