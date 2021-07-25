@@ -8,11 +8,15 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+//https://www.baeldung.com/java-char-sequence-string
+
 public class Strings {
     public static void main(String[] args) {
         Integer i1 = 10;
         String s1 = String.valueOf(i1);
         String s2 = new String(new char[]{'S','t', 'a','s'});
+        //CharSequence is interface, string - is his implementation
+        CharSequence str = "hi";
         String s3 = String.join(" ", s2,s1);
         System.out.println(s3);
 
@@ -115,6 +119,9 @@ public class Strings {
         // TODO Интернирование для строк и примитовов
         String s = new String("FF");
         String s0 = "FF";
+//        https://habr.com/ru/post/79913/
+//        Немного вас поправлю. Метод intern просто перед созданием объекта String смотрит есть ли этот объект в пуле
+//        стрингов и возвращает его. Иначе создается новый объект в пуле.
         s= s.intern();
         System.out.println(s==s0);
         Integer a1 = 1;

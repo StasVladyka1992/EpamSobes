@@ -18,6 +18,7 @@ Aлгоритмическая сложность: средний случа он
  */
 public class QuickSort {
 	public int[] quickSort(int[] array) {
+		//базовый случай
 		if (array.length == 0 || array.length == 1) {
 			return array;
 		}
@@ -32,6 +33,7 @@ public class QuickSort {
 		//in case if bearing numbers repeat
 		int[] bearingNumbers = Arrays.stream(array).filter(i -> i == array[bearingIndex]).toArray();
 
+		//рекурсивный
 		return joinArrays(quickSort(smallerNumbers), bearingNumbers, quickSort(biggerNumbers));
 	}
 

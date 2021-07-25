@@ -20,23 +20,34 @@ public class Example {
     //https://software.rajivprab.com/2019/08/14/nuances-of-overloading-and-overriding-in-java/
 	public static void main(String[] args) {
 		Parent parent = new Child();
-		parent.print("");
+//		parent.print("");
 
 
 		Parent p = new Parent();
 		Parent pc = new Child();
-		pc.print("S");
+//		pc.print("S");
 
 	}
 }
 class Parent{
-	void print(Object a){
+	protected Parent print(Parent a){
 		System.out.println("Parent - Object");
+		return new Parent();
 	}
 }
 
 class Child extends Parent {
-	void print(Object a){
-		System.out.println("Child - String");
+
+//	расширение возвращаемого значения
+	@Override
+	public Child print(Parent a) {
+		return (Child) super.print(a);
 	}
+
+//	TODO расширение модификатора доступа
+//	@Override
+//	public Parent print(Parent a){
+//		System.out.println("Child - String");
+//		return new Parent();
+//	}
 }

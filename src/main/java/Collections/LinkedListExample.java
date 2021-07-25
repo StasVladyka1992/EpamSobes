@@ -13,7 +13,7 @@ import static java.lang.System.out;
  * @project EpamSobes
  * author Stas Vladyka on 20.07.2019.
  */
-public class ListExample {
+public class LinkedListExample {
     public static void main(String[] args) {
         LinkedList<Person> people = new LinkedList<>(Arrays.asList(
                 new Person("Stas", 1),
@@ -23,7 +23,7 @@ public class ListExample {
                 new Person("Slava", 5),
                 new Person("Igor", 6)
         ));
-        ListExample example = new ListExample();
+        LinkedListExample example = new LinkedListExample();
         example.deleteElement(people);
 
     }

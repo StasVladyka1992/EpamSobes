@@ -11,4 +11,7 @@ public abstract class Auto extends Machine{
        System.out.println("Поломка");
    }
    abstract void stop ();
+//   default public void get(){  - ошибка
+//      System.out.println("Hi");
+//   }
 }

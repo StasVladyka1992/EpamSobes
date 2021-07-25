@@ -8,6 +8,8 @@ import javax.xml.bind.Marshaller;
 
 /*
 https://www.javacodegeeks.com/2014/12/jaxb-tutorial-xml-binding.html
+Marshall - convert java object to xml
+Unmarshalling - convert xml to object
  */
 public class Theory {
 	public static void main(String[] args) {

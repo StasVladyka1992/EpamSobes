@@ -2,8 +2,9 @@ package Algorythm.sorting;
 
 /*
 Алгоритмическая сложность -  O(n^2)
-Основан на том, мы ищем каждый раз наименьший элемент в массиве. Допустим, сначала наименьший элемент -
-это 3, ставим его на 0 позицию. Далее, самый маленький после 3 это 5, ставим его на позицию 1 и так далее.
+The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order)
+from unsorted part and putting it at the beginning. Все делается в одном и том же массиве.
+https://www.geeksforgeeks.org/selection-sort/
  */
 public class SelectSort {
 	public static void main(String[] args) {

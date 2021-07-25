@@ -11,13 +11,11 @@ public class ArraysClass {
         // Cписок формируется на основе массива. Массив при этом используется для внутреннего представления списка.
         // Таким образом сохраняется связь между списком и исходным массивом:
         //изменения в массиве отразятся на списке и на оборот - изменения списка - на массиве.
-        List <Integer> list = Arrays.asList(new Integer[]{1,3,45,6});
-
-
-
-
-
-
+        Integer [] ar = new Integer[]{1,3,45,6};
+        List <Integer> list = Arrays.asList(ar);
+        ar[0] = 10;
+        System.out.println("ar[0]" + ar[0]);
+        System.out.println("list.get(0)" + list.get(0));
 
         // копирование массива и создание нового с установкой значений в ноль, если длина создаваемого массива больше,
         // того, с которого копируют
@@ -36,10 +34,10 @@ public class ArraysClass {
         /*TODO: важно, метод toArray () возвращет тип Object, который не может быть передан другим типам данных.
         однако можно указать тип массива в скобочках, к которому будут приводиться данные. Тогда не потребуется даже
         // расширение либо сужение типов. */
-        Integer [] arrayFromList = list.toArray(new Integer[list.size()]);
+        Integer [] arrayFromList = list.toArray(new Integer[0]);
         Integer [] array = {1,3,45,6};
         System.out.println(Arrays.equals(array, arrayFromList));
-
+        System.out.println(Arrays.deepEquals(array, arrayFromList));
 
         /*fillHashSet - Assigns the specified value to each element of the specified array */
         Arrays.fill(array, 2);

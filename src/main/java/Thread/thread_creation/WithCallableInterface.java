@@ -29,10 +29,23 @@ public class WithCallableInterface implements Callable<String> {
 //        Callable <String> callable = () -> {
 //            return "Hello, World!";
 //        };
+
 		//Второй способ
 		Callable<String> callable = new WithCallableInterface();
 		FutureTask<String> stringFuture = new FutureTask<>(callable);
 		Thread thread = new Thread(stringFuture);
 		thread.start();
+		System.out.println("Result: " + stringFuture.get());
+
+//		c java 1.8 появился интерфейс CompletableFuture:
+//		https://blog.knoldus.com/future-vs-completablefuture-1/
+//		https://www.baeldung.com/java-completablefuture
+//		Future не позволял докрутить определенную логику обработки, а требовалось проверять isDone или ждать get, например:
+//	    stringFuture.doSmth( res -> ...). CompletableFuture позволяет.
+
+
 	}
+
+
+
 }

@@ -6,7 +6,7 @@ import java.util.Map;
 public class Car extends Auto {
     @Override
     void drive() {
-        System.out.println("Едим");
+        System.out.println("Едем");
     }
 
     @Override
@@ -23,12 +23,9 @@ public class Car extends Auto {
         map.put(null, "Стас");
         System.out.println(map.get(null));
 
-
         Car car = new Car();
         car.drive();
         car.stop();
         car.broke();
-
     }
-
 }

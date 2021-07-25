@@ -3,7 +3,7 @@ package Thread.concurrency.concurrent_collections;
 import java.util.concurrent.ConcurrentSkipListMap;
 
 /*
-Отсортированная коллекция
+Отсортированная коллекция, эквивалент treeMap
  */
 public class ConcurrentSkipListMapExample {
 	public static void main(String[] args) {

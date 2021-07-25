@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 public class Wrappers {
     public static void main(String[] args) {
         //значения базовых типов хранятся в стеке и не являются объектами. Обертки примитивов - это
@@ -30,8 +32,12 @@ public class Wrappers {
         // Преобразование примитива к строке. P.S. у Double, Float, Byte, Short нету методов для преобразования к
         // Binary, Octal String. У Long есть
         String s1 = Integer.toString(2);
-        s1 = Integer.toBinaryString(2);
-        s1 = Integer.toOctalString(2);
+        s1 = Integer.toBinaryString(19);
+        System.out.println("binary 2 = "+ s1);
+        s1 = Integer.toOctalString(19);
+        System.out.println("octal 2 = "+ s1);
+        s1 = Integer.toHexString(19);
+        System.out.println("hex 2 = "+ s1);
         s1 = Integer.toString(2);
         s1 = String.valueOf("2");
 

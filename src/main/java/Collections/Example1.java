@@ -22,7 +22,7 @@ public class Example1 {
         // ВАЖНО, размер коллекции, куда копируются элементы должен совпадать или быть больше, той коллекции
         // из которой идет копирование.
 
-        Collections.addAll(arrayList2, new Integer [] {new Integer(2), new Integer(8)});
+        Collections.addAll(arrayList2, new Integer [] {2, 8});
         Collections.copy(arrayList2, arrayList);
 //        for (Integer i : arrayList2) {
 //            System.out.println(i);

@@ -4,6 +4,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 
+//Хорошая статья с описанием: https://javagoal.com/concurrenthashmap-in-java/
 /*
 СoncurrentHashMap использует несколько сегментов, и данный класс нужно рассматривать как группу HashMap’ов.
 Количество сегментов по умолчанию равно 16. Если пара key-value хранится в 10-ом сегменте,
@@ -19,8 +20,8 @@ ConcurrentHashMap -
 
  	б) ConcurrentModificationException if the ConcurrentHashMap is changed while being iterated.
  	The Iterator is not designed to be used by more than one thread though.
-
  */
+
 public class ConcurrentHashMapExample {
 	public static void main(String[] args) {
 

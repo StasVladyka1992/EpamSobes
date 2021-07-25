@@ -16,7 +16,9 @@ public class Theory {
 	// 1) при десериализации не вызывается конструктор
 	// Теория: https://javarush.ru/groups/posts/2022-serializacija-i-deserializacija-v-java - общая инфа
 	// https://javarush.ru/groups/posts/2023-znakomstvo-s-interfeysom-externalizable
+	// https://www.geeksforgeeks.org/difference-between-serializable-and-externalizable-in-java-serialization/
 	// Углубленная информация про сериализацию и десериализацию - http://www.skipy.ru/technics/serialization.html
+	// https://www.geeksforgeeks.org/difference-between-serializable-and-externalizable-in-java-serialization/
 	public static void main(String[] args) {
 		Adress adress = new Adress("1", "2", "3");
 		Person person = new Person(1, "S", "V", adress);

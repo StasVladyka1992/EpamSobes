@@ -60,6 +60,4 @@ public enum EnumType {
     private EnumType(){
 
     }
-
-
 }

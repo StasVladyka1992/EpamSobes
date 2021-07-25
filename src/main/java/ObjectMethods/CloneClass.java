@@ -45,8 +45,13 @@ public class CloneClass implements Cloneable{
         return super.toString();
     }
 
+//    https://www.infoq.com/news/2017/03/Java-Finalize-Deprecated/
+//    https://hackernoon.com/java-lang-object-finalize-is-finally-deprecated-f99df40fa71
+//    https://medium.com/javarevisited/time-to-say-goodbye-to-the-finalize-method-in-java-a2f5b7e4f1b1
     @Override
     protected void finalize() throws Throwable {
         super.finalize();
     }
+
+
 }

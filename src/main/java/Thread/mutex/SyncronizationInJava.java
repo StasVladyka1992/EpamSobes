@@ -4,7 +4,11 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.locks.ReentrantLock;
 
-/*
+/* TODO Отличия CAS, FAA от синхронизации в коде:
+   Показывается, в чем различие между синхронизацией в коде и использовании lock-free алгоритмов:
+   https://www.baeldung.com/java-atomic-variables
+   Объясняется суть CAS и FAA - https://habr.com/ru/post/319036/
+
  * TODO МЬЮТЕКС, МОНИТОР, СЕМАФОР
  *
  * МЬЮТЕКС — это специальный объект для синхронизации потоков. Он «прикреплен» к каждому объекту в Java
@@ -28,7 +32,6 @@ import java.util.concurrent.locks.ReentrantLock;
  * МЬЮТЕКС — это одноместный СЕМАФОР
  * Источник - https://javarush.ru/groups/posts/2174-v-chem-raznica-mezhdu-mjhjuteksom-monitorom-i-semaforom
  *
- *
  * TODO LOCKS
  * В качестве альтернативы блоку synchronized можно использовать Lock API
  * Плюсы:
@@ -47,7 +50,7 @@ import java.util.concurrent.locks.ReentrantLock;
  *   	lock.unlock();
  *	}
  *
- * Виды
+ * TODO Виды Lock:
  * ReentrantLock - стандартная реализация Lock интерфейса
  * ReentrantReadWriteLock - реализация ReadWriteLock интерфейса.
  * StampedLock - новая реализация, возвращющая long, который может быть, например,  в последствии переиспользован для того
@@ -55,16 +58,40 @@ import java.util.concurrent.locks.ReentrantLock;
  *	1) создаем сначала ReadWriteLock lock = new ReentrantReadWriteLock();
  * 	2) выбираем нужный Lock, например  Lock writeLock = lock.writeLock();
  * StampedLock - из java 8. Пока глубоко не изучал
- * Подробнее: https://www.baeldung.com/java-concurrent-locks#2-reentrantreadwritelock
+ * Подробнее:
+ * http://java-online.ru/concurrent-locks.xhtml
+ * https://www.baeldung.com/java-concurrent-locks#2-reentrantreadwritelock
  * https://dev.cheremin.info/2012/10/stampedlock.html
  *
- * Reentrancy - реентера́бельность (от англ. reentrant — повторно входимый),
- * свойство кода, говорящее о том, что одна и та же
- * копия инструкций программы в памяти может быть
- * совместно использована несколькими пользователями или процессами.
+ * TODO Condition:
+ * Интерфейсное условие Condition в сочетании с блокировкой Lock позволяет заменить методы
+ * монитора/мьютекса (wait, notify и notifyAll) объектом, управляющим ожиданием событий.
+ * Условие Condition, иначе именуемое как очередь условия, предоставляет средство управления для одного потока,
+ * чтобы приостановить его выполнение до тех пор, пока он не будет уведомлен другим потоком. Объект Condition связывают
+ * с блокировкой. Чтобы получить Condition для блокировки Lock используют метод newCondition().
+ *
+ * ReentrantLock locker = new ReentrantLock();
+ * Condition condition = locker.newCondition();
+ *    Чтобы перевести поток в ожидание, если определенное условие не выполняется, то используется метод await :
+   while (условие)
+     condition.await();
+ *
+ * //TODO Reentrant
+ * A lock is called reentrant if the thread that holds the lock can lock it again. This means that even if a thread
+ * holds the lock it can lock it again. Consequently the thread must unlock it as many times as it
+ * has locked it, in order to fully unlock the Reentrant lock for other threads.
  *
  * Lock contention -  occurs whenever one process or thread attempts to acquire a lock held by another
- * process or thread. The more fine-grained the available locks, the less likely one process/thread will request a lock held by the other. (For example, locking a row rather than the entire table, or locking a cell rather than the entire row.);
+ * process or thread. The more fine-grained the available locks, the less likely one process/thread will request a lock held by the other.
+  (For example, locking a row rather than the entire table, or locking a cell rather than the entire row.);
+ *
+ * Одним из интересных методов интерфейса Lock и его реализации ReentrantLock является запрос блокировки с возможностью
+ * прерывания процесса ожидания. Т.е. если поток запрашивает блокировку методом lockInterruptibly() и не получает ее сразу же,
+ * то переходит в процесс ожидания. Методом interrupt работу потока в процессе ожидания можно прервать.
+ * Тогда ожидающий блокировки поток просыпается, и генерируется исключительная ситуация InterruptedException в потоке,
+ * которы вызвал interrupt у ожидаюшего потока.
+ * После этого попыток доступа к защищенному ресурсу (получения блокировок) не делается и освобождать блокировку не требуется.
+ * см. http://java-online.ru/concurrent-locks.xhtml
  *
  * TODO СИНХРОНИЗАЦИЯ ЧЕРЕЗ СТАТИЧЕСКИЕ, НЕСТАТИЧЕСКИЕ МЕТОДЫ И через объект
  * Важно понимать, что при синхронизации ВСЕГДА будет использоваться ОБЪЕКТ с мьютексом, а так как любой объект содержит

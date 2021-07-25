@@ -1,5 +1,6 @@
 package Collections;
 
+import Clone.Pilot;
 import Stream.Person;
 
 import java.util.*;
@@ -19,6 +20,16 @@ public class CollectionExample {
         example.printContainers();
         example.differenceBetweenToArray();
         example.isEmpty();
+
+        List<String> strList = new ArrayList<>();
+        strList.add("Java");
+        strList.add("Python");
+        strList.add("Android");
+
+        //начиная с 11 джавы
+        String[] strArray = strList.toArray(size -> new String[size]);
+        System.out.println(Arrays.toString(strArray));
+
     }
 
     public void addReturnsForList() {
