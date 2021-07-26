@@ -20,4 +20,5 @@ public class CloneTheory {
 	}
 	//test commit for rebase
 	//test commit for rebase 2
+	//test commit for rebase 3 from test
 }
