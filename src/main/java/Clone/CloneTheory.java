@@ -19,4 +19,5 @@ public class CloneTheory {
 		System.out.println("new one:" + newKart.toString());
 	}
 	//test commit for rebase
+	//test commit for rebase 2
 }
