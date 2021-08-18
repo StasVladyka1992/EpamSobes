@@ -30,5 +30,6 @@ public class Test implements Cloneable {
 		//com2
 		//com3
 		//commit mast1
+		//commit mast2
 	}
 }
