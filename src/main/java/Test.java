@@ -26,5 +26,6 @@ public class Test implements Cloneable {
 //		System.out.println(a3==1L);
 
 //		Collections.emptyList().get(0);
+		//com1
 	}
 }
