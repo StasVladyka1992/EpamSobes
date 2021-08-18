@@ -27,5 +27,6 @@ public class Test implements Cloneable {
 
 //		Collections.emptyList().get(0);
 		//com1
+		//com2
 	}
 }
