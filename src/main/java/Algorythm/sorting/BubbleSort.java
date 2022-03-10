@@ -62,7 +62,7 @@ public class BubbleSort {
 	//по возрастанию
 	public int[] bubbleSortClassicAsc(int[] ar) {
 		for (int i = 0; i < ar.length - 1; i++) {
-			for (int j = i; j < ar.length; j++) {
+			for (int j = i+1; j < ar.length; j++) {
 				if (ar[i] > ar[j]) {
 					int buf = ar[i];
 					ar[i] = ar[j];

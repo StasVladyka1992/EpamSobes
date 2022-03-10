@@ -11,6 +11,7 @@ public class VolatileExample {
 	 * Есть странные ситуации, но онм могут быть связаны с тем, что несколько потоков зашли в sout, готовясь вывести
 	 * значение на консоль, а в этот момент их прервали.
 	*/
+	//https://www.javatpoint.com/volatile-keyword-in-java
 	private static volatile long counter = 1;
 
 	public static void main(String[] args) {

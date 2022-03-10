@@ -11,6 +11,6 @@ public class Theory {
 	//deadlock
 	//race condition - https://stackoverflow.com/questions/34510/what-is-a-race-condition
 	//live lock -https://javarush.ru/groups/posts/2060-threadom-java-ne-isportishjh--chastjh-iii---vzaimodeystvie
-	//thread starvation -https://javarush.ru/groups/posts/2060-threadom-java-ne-isportishjh--chastjh-iii---vzaimodeystvie
+	//thread starvation - https://javarush.ru/groups/posts/2060-threadom-java-ne-isportishjh--chastjh-iii---vzaimodeystvie
 	//reordering - глянуть.
 }

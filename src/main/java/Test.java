@@ -1,6 +1,10 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayDeque;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Test implements Cloneable {
 	public static void main(String[] args) {
@@ -31,5 +35,25 @@ public class Test implements Cloneable {
 		//com3
 		//commit mast1
 		//commit mast2
+
+		Map<String, BigDecimal> map = new HashMap<>();
+		if(map.containsKey("name")){
+			BigDecimal newValue =  map.get("name").add(new BigDecimal("new value"));
+			map.put("name", newValue);
+		} else{
+			map.put("name", new BigDecimal("241"));
+		}
+
+		map.entrySet().stream().forEach(es -> {
+			//запись в файл
+		});
+
+		for (Map.Entry<String, BigDecimal> entry :map.entrySet()) {
+			//запись в файл
+		}
+
+
+
+
 	}
 }

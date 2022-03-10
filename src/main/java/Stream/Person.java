@@ -1,5 +1,6 @@
 package Stream;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class Person {
@@ -19,6 +20,10 @@ public class Person {
     }
 
     public Person() {
+    }
+
+    public Person(int age) {
+        this.age = age;
     }
 
     public int getAge(){
@@ -49,5 +54,16 @@ public class Person {
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+    public static void main(String[] args) {
+        Person p1 = new Person(1);
+        Person p2 = new Person(2);
+        Person p3 = new Person(3);
+
+        System.out.println(List.of(p2, p3, p1).stream().max(Comparator.comparing(Person::getAge)).get());
+        System.out.println(List.of(p3).stream().max(Comparator.comparing(Person::getAge)).get());
+
+
     }
 }
