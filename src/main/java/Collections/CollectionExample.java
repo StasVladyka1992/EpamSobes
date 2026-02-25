@@ -1,14 +1,10 @@
 package Collections;
 
-import Clone.Pilot;
 import Stream.Person;
 
 import java.util.*;
 
-/**
- * @project EpamSobes
- * author Stas Vladyka on 20.07.2019.
- */
+
 public class CollectionExample {
     public static void main(String[] args) {
 
@@ -90,16 +86,16 @@ public class CollectionExample {
         return collection;
     }
 
-    private void differenceBetweenToArray(){
-        List <String> list  = Arrays.asList("крыса", "кошка", "собака", "собака");
+    private void differenceBetweenToArray() {
+        List<String> list = Arrays.asList("крыса", "кошка", "собака", "собака");
         //all elements of array are objects
-        Object [] objects = list.toArray();
+        Object[] objects = list.toArray();
         //all elements of array are Strings
-        String [] strings = list.toArray(new String[0]);
+        String[] strings = list.toArray(new String[0]);
     }
 
-    private void isEmpty(){
-        List <String> list  = Arrays.asList("крыса", "кошка", "собака", "собака");
+    private void isEmpty() {
+        List<String> list = Arrays.asList("крыса", "кошка", "собака", "собака");
         System.out.println(list.isEmpty());
         System.out.println(new ArrayList<>().isEmpty());
     }
