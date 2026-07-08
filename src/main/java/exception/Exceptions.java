@@ -6,6 +6,30 @@ import java.io.FileNotFoundException;
 //Very good example, which explains how to throw exceptions - https://stackoverflow.com/questions/11819052/java-exception-handling-strategy
 //Exception handling best practises: https://dzone.com/articles/9-best-practices-to-handle-exceptions-in-java
 //Oracle advice how to handle exception: https://stackify.com/specify-handle-exceptions-java/#tryWithResource
+/*
+java.lang.Object
+│
+└─── java.lang.Throwable
+     │
+     ├─── java.lang.Error (unchecked)
+     │    ├─── OutOfMemoryError
+     │    ├─── StackOverflowError
+     │    └─── ...
+     │
+     └─── java.lang.Exception (checked, кроме наследников RuntimeException)
+          │
+          ├─── java.lang.RuntimeException (unchecked)
+          │    ├─── NullPointerException
+          │    ├─── IllegalArgumentException
+          │    ├─── ArithmeticException
+          │    └─── ...
+          │
+          ├─── java.io.IOException (checked)
+          ├─── java.sql.SQLException (checked)
+          └─── ...
+ */
+
+
 
 public class Exceptions {
     public static void main(String[] args) throws MyException {

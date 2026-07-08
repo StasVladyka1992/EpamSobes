@@ -33,7 +33,7 @@ public class ExecutorTypes {
 //─────────────────────────────────────────────────────────────────────
 //		CPU-интенсивные (редко блокируются)                     → FixedThreadPool(N_CPU)
 //		I/O-интенсивные (часто блокируются)                     → FixedThreadPool(N_CPU * 2)
-//		Много маленьких задач                                   → CachedThreadPool
+//		Много маленьких задач                                   → FixedThreadPool (CachedThreadPool - очень специфичный кейс)
 //		Нужен порядок (потокобезопасность)                      → SingleThreadExecutor
 //		Периодические/отложенные задачи                         → ScheduledThreadPool
 //		Рекурсивные задачи (ForkJoin)                           → WorkStealingPool
@@ -66,8 +66,48 @@ public class ExecutorTypes {
 		ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
 
 /*
-//TODO -  Cached thread pool work algorithm:
 
+//TODO - Fixed thread pool:
+	Создает потоки лениво. Т.е. у тебя 10 потоков задано, то сначало будет 0 и будет увеличиваться по мере увеличения кол-ва задач.
+	В конечном итоге количество потоков при увеличении задач может достигнуть 10, а может остаться и 8.
+
+	public class FixedThreadPoolCreationDemo {
+    public static void main(String[] args) {
+        ExecutorService pool = Executors.newFixedThreadPool(10);
+
+        System.out.println("После создания ExecutorService:");
+        printActiveThreads(); // 0 потоков!
+
+        // Только после отправки задач начинают создаваться потоки
+        pool.submit(() -> System.out.println("Task 1"));
+
+        Thread.sleep(100);
+        System.out.println("После первой задачи:");
+        printActiveThreads(); // 1 поток
+
+        // Постепенное создание до максимума
+        for (int i = 0; i < 20; i++) {
+            pool.submit(() -> {
+                try { Thread.sleep(1000); } catch (Exception e) {}
+            });
+        }
+
+        Thread.sleep(500);
+        System.out.println("После множества задач:");
+        printActiveThreads(); // Постепенно дойдет до 10, но не сразу!
+    }
+
+    static void printActiveThreads() {
+        ThreadMXBean threadBean = ManagementFactory.getThreadMXBean();
+        int threadCount = threadBean.getThreadCount();
+        System.out.println("Активных потоков: " + threadCount);
+    }
+}
+
+
+
+//TODO -  Cached thread pool:
+	Synchronous queue может хранить только 1 элемент.
 		Временная линия:
 ═══════════════════════════════════════════════════════════════════
 

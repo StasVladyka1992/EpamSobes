@@ -6,12 +6,14 @@ package concurrency.key_words_and_commands;
  * - По умолчанию = false
  * - interrupt() устанавливает в true
  * - isInterrupted() проверяет, НЕ меняя флаг
- * - Thread.interrupted() проверяет И СБРАСЫВАЕТ в false
+ * - Thread.interrupted() проверяет И СБРАСЫВАЕТ в false - главное его назначение СБРОС СТАТУСА ПРЕРЫВАНИЯ (для перезапуска потока это нужно)
+	 Важно, если выбрасывается InterruptedException то, JVM автоматически сбрасывает флаг прерывания в false.
  */
 //
 //Interrupted exception выбрасывается только в состоянии WAITING или TIMED_WAITING
 //Методы, требующие обработку этого исключения: wait, sleep, join. Исключение будет выброшено,
 //если флаг interrupt у потока true.
+
 
 
 //TODO socket исключение
@@ -42,7 +44,7 @@ package concurrency.key_words_and_commands;
 
 import static java.lang.Thread.interrupted;
 
-public class SleepExample {
+public class Interrupt {
 	public static void main(String[] args) {
 		Thread thread = new Thread(()-> {
 			System.out.println("Thread start");

@@ -6,6 +6,8 @@ The selection sort algorithm sorts an array by repeatedly finding the minimum el
 from unsorted part and putting it at the beginning. Все делается в одном и том же массиве.
 https://www.geeksforgeeks.org/selection-sort/
  */
+
+//Суть: На каждом шаге вы находите минимум / максимум во всём остатке и ставите его на своё место.
 public class SelectSort {
 	public static void main(String[] args) {
 		int[] array = {1, 3, 10, 2, 19, 0, 20, 17};
